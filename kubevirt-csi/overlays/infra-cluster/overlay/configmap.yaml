@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: driver-config
+  namespace: ${TENANT_NAMESPACE}
+data:
+  infraClusterNamespace: ${TENANT_NAMESPACE}
+  infraClusterLabels: csi-driver/cluster=${TENANT_CLUSTER_NAME}

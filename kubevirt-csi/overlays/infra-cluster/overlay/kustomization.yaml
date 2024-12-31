@@ -1,0 +1,6 @@
+bases:
+  - ../base
+namespace: ${TENANT_NAMESPACE}
+patchesStrategicMerge:
+  - controller-patch.yaml
+  - configmap.yaml
