@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kubevirt-csi-infra-service-account
+  namespace: argocd
+spec:
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+  source:
+    repoURL: https://github.com/kubevirt/csi-driver  # Correct repo URL
+    path: deploy/infra-cluster-service-account.yaml
+    targetRevision: main
+  destination:
+    server: https://infra-cluster-api-endpoint  # Replace with your infra cluster API endpoint
+    namespace: kvcluster  # Namespace in the infra cluster
